@@ -10,7 +10,7 @@ const carousel = [
         image: "https://placehold.co/600x400/blue/white"
     },
     {
-        id: 2,
+        id: 3,
         title: "Terzo Post",
         image: "https://placehold.co/600x400/red/white"
     }
