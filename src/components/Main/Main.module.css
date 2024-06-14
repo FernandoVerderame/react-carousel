@@ -8,3 +8,18 @@
     flex-wrap: wrap;
     gap: 30px;
 }
+
+.carousel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 2rem;
+    display: inline-flex;
+}
