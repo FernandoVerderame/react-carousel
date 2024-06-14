@@ -1,4 +1,4 @@
-// Importo lo style del main, l'array dei posts, la Post Card, il carosello, lo useState ed i bottoni del carosello
+// Importo lo style del main, l'array dei posts, la Post Card, il carosello, lo useState, i bottoni del carosello ed i thumbnails
 import PostCard from '../Card/PostCard';
 import mainStyle from './Main.module.css';
 import posts from '../../data/posts.js';
@@ -9,6 +9,7 @@ import {
     FaArrowAltCircleLeft as Prev,
     FaArrowAltCircleRight as Next
 } from "react-icons/fa";
+import CarouselThumbnails from '../CarouselThumbnails/CarouselThumbnails.jsx';
 
 const Main = () => {
 
@@ -33,14 +34,16 @@ const Main = () => {
             <main className={mainStyle.mainSec}>
 
                 {/* Carosello dei Posts */}
-
                 <div className={mainStyle.carousel}>
+
+                    {/* Prev Button */}
                     <button className={mainStyle.btn}>
                         <Prev
                             onClick={prevClick}
                         />
                     </button>
 
+                    {/* Post del carosello */}
                     {postsCarousel.map((pc, i) => (
                         <CarouselPost
                             key={pc.id}
@@ -50,6 +53,7 @@ const Main = () => {
                         />
                     ))}
 
+                    {/* Next Button */}
                     <button className={mainStyle.btn}>
                         <Next
                             onClick={nextClick}
@@ -57,7 +61,17 @@ const Main = () => {
                     </button>
                 </div>
 
-
+                {/* Thumbnails dei Posts */}
+                <div className={mainStyle.thumbnails}>
+                    {postsCarousel.map((pc, i) => (
+                        <CarouselThumbnails
+                            key={pc.id}
+                            image={pc.image}
+                            isActive={activePost === i}
+                            onThumbnailClick={() => setActivePost(i)}
+                        />
+                    ))}
+                </div>
 
 
 

@@ -23,3 +23,8 @@
     font-size: 2rem;
     display: inline-flex;
 }
+
+.thumbnails {
+    display: flex;
+    gap: 20px;
+}
