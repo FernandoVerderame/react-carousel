@@ -2,8 +2,12 @@
 import PostCard from '../Card/PostCard';
 import mainStyle from './Main.module.css';
 import posts from '../../data/posts.js';
+import carousel from '../../data/carousel.js';
 
 const Main = () => {
+
+    const postsCarousel = carousel;
+
     return (
         <>
             <main className={mainStyle.mainSec}>
