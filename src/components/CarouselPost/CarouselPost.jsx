@@ -5,10 +5,10 @@ const CarouselPost = ({ title, image, isActive }) => {
     return (
         isActive && (
             <div>
-                <div className='card-image'>
+                <figure>
                     <img src={image} alt={title} className={postCarouselStyle.img} />
-                </div>
-                <div className='card-body'>
+                </figure>
+                <div className='card-content'>
                     <h3 className={postCarouselStyle.title}>{title}</h3>
                 </div>
             </div>
