@@ -4,7 +4,7 @@ import mainStyle from './Main.module.css';
 import posts from '../../data/posts.js';
 import carousel from '../../data/carousel.js';
 import CarouselPost from '../CarouselPost/CarouselPost.jsx';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
     FaArrowAltCircleLeft as Prev,
     FaArrowAltCircleRight as Next
@@ -28,6 +28,15 @@ const Main = () => {
             currentIndex === postsCarousel.length - 1 ? 0 : currentIndex + 1
         );
     }
+
+    // Autoplay
+    useEffect(() => {
+        const interval = setInterval(() => {
+            nextClick();
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [activePost]);
 
     return (
         <>
