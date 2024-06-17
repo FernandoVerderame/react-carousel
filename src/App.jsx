@@ -2,12 +2,16 @@
 import Header from "./components/Header/Header.jsx";
 import Main from "./components/Main/Main.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import { useState } from 'react';
 
 const App = () => {
+
+    const [selectedTag, setSelectedTag] = useState('');
+
     return (
         <>
-            <Header />
-            <Main />
+            <Header onTagSelect={setSelectedTag} />
+            <Main selectedTag={selectedTag} />
             <Footer />
         </>
     );

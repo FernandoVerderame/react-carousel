@@ -4,7 +4,11 @@ import mainStyle from './Main.module.css';
 import posts from '../../data/posts.js';
 import Carousel from '../Carousel/Carousel.jsx';
 
-const Main = () => {
+const Main = ({ selectedTag }) => {
+
+    const filteredPosts = selectedTag
+        ? posts.filter(p => p.tags.includes(selectedTag))
+        : posts;
 
     return (
         <>
@@ -13,7 +17,7 @@ const Main = () => {
                 <Carousel />
 
                 {/* Genero in modo dinamico i Posts */}
-                {posts.map(p => (
+                {filteredPosts.map(p => (
                     p.published === true &&
                     <PostCard key={p.id}
                         title={p.title}

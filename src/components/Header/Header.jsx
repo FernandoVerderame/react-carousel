@@ -2,7 +2,7 @@
 import TagSelect from '../TagSelect/TagSelect.jsx';
 import headerStyle from './Header.module.css';
 
-const Header = () => {
+const Header = ({ onTagSelect }) => {
 
 
     return (
@@ -10,7 +10,7 @@ const Header = () => {
             <header className={headerStyle.headerSec}>
                 {/* Blog Title */}
                 <h1>Il mio blog</h1>
-                <TagSelect />
+                <TagSelect onTagChange={onTagSelect} />
             </header>
         </>
     );

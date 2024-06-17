@@ -2,9 +2,8 @@
 import posts from '../../data/posts.js';
 import tagSelectStyle from './TagSelect.module.css';
 
-const TagSelect = () => {
+const TagSelect = ({ onTagChange }) => {
 
-    // Estraggo tutti i tag distinti utilizzando un Set
     const uniqueTags = posts.reduce((acc, p) => {
         p.tags.forEach(t => {
             if (!acc.includes(t)) {
@@ -16,7 +15,11 @@ const TagSelect = () => {
 
     return (
 
-        <select name="tags" id="tags" className={tagSelectStyle.tagSelect}>
+        <select name="tags"
+            id="tags"
+            className={tagSelectStyle.tagSelect}
+            onChange={(e) => onTagChange(e.target.value)}
+        >
             <option value="">Seleziona un tag</option>
             {uniqueTags.map((tag, i) => (
                 <option key={i} value={tag}>{tag}</option>
